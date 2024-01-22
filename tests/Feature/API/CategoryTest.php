@@ -1,10 +1,10 @@
 <?php
 
-use App\Models\Product;
 use App\Models\Category;
+use App\Models\Product;
 
-describe('MODEL', function() {
-    it('can create a Category with associated Products', function() {
+describe('MODEL', function () {
+    it('can create a Category with associated Products', function () {
         $category = Category::factory()
             ->has(Product::factory()->count(3))
             ->create();
@@ -17,10 +17,10 @@ describe('MODEL', function() {
     });
 });
 
-describe('API', function() {
-    it('can fetch info of a category with the API "Get Category" route', function() {
+describe('API', function () {
+    it('can fetch info of a category with the API "Get Category" route', function () {
         $category = Category::factory()->create();
-        $response = $this->get(route('api.category.get', [ 'category' => $category->id]))->assertStatus(200);
+        $response = $this->get(route('api.category.get', ['category' => $category->id]))->assertStatus(200);
         $returnedCategory = $response->getContent();
         expect($returnedCategory)->toBeJson();
         expect($category->toArray())->toEqualCanonicalizing(json_decode($returnedCategory, true));
