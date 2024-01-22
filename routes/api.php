@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +20,18 @@ Route::name('api.')->group(function() {
     Route::prefix('user')->name('user.')->group(function() {
         Route::middleware('auth:sanctum')->get('/', function (Request $request) {
             return $request->user();
+        })->name('get');
+    });
+
+    Route::prefix('category')->name('category.')->group(function() {
+        Route::get('/{category}', function (Category $category) {
+            return $category;
+        })->name('get');
+    });
+
+    Route::prefix('product')->name('product.')->group(function() {
+        Route::get('/{product}', function (Product $product) {
+            return $product;
         })->name('get');
     });
 });
