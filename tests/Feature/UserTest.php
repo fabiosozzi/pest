@@ -14,8 +14,7 @@ describe('API', function () {
 
     it('can return the correct user from the API "Get User" route', function () {
         $user = User::factory()->create();
-        $returnedUser = $this->actingAs($user)->get(route('api.user.get'))->getContent();
-        expect($returnedUser)->toBeJson();
-        expect($user->toArray())->toEqualCanonicalizing(json_decode($returnedUser, true));
+        $response = $this->actingAs($user)->get(route('api.user.get'))->assertStatus(200);
+        expect($user->toArray())->toEqualCanonicalizing($response->json());
     });
 });

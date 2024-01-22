@@ -11,8 +11,6 @@ describe('API', function () {
 
         $product = $category->products->first();
         $response = $this->get(route('api.product.get', ['product' => $product->id]));
-        $returnedProduct = $response->getContent();
-        expect($returnedProduct)->toBeJson();
-        expect($product->toArray())->toEqualCanonicalizing(json_decode($returnedProduct, true));
+        expect($product->toArray())->toEqualCanonicalizing($response->json());
     });
 });
