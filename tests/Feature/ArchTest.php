@@ -6,4 +6,10 @@ describe('ARCH', function () {
             ->not
             ->toBeUsed();
     });
+
+    it('verify that env() is not used in code', function () {
+        $this->expect(['env'])
+            ->not
+            ->toBeUsed();
+    });
 });
