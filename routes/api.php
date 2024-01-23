@@ -1,5 +1,7 @@
 <?php
 
+use App\Actions\ReturnCategory;
+use App\Actions\ReturnProduct;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -24,14 +26,10 @@ Route::name('api.')->group(function () {
     });
 
     Route::prefix('category')->name('category.')->group(function () {
-        Route::get('/{category}', function (Category $category) {
-            return $category;
-        })->name('get');
+        Route::get('/{category}', ReturnCategory::class)->name('get');
     });
 
     Route::prefix('product')->name('product.')->group(function () {
-        Route::get('/{product}', function (Product $product) {
-            return $product;
-        })->name('get');
+        Route::get('/{product}', ReturnProduct::class)->name('get');
     });
 });

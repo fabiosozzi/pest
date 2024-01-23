@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Resources\ProductResource;
 use App\Models\Category;
 use App\Models\Product;
 
@@ -9,8 +10,8 @@ describe('API', function () {
             ->has(Product::factory()->count(1))
             ->create();
 
-        $product = $category->products->first();
+        $product = new ProductResource($category->products->first());
         $response = $this->get(route('api.product.get', ['product' => $product->id]));
-        expect($product->toArray())->toEqualCanonicalizing($response->json());
+        $response->assertStatus(200)->assertJson(['data' => $product->resolve()]);
     });
 });
