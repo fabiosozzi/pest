@@ -2,8 +2,6 @@
 
 use App\Actions\ReturnCategory;
 use App\Actions\ReturnProduct;
-use App\Models\Category;
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

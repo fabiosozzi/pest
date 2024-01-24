@@ -2,8 +2,8 @@
 
 namespace App\Actions;
 
-use App\Models\Product;
 use App\Http\Resources\ProductResource;
+use App\Models\Product;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class ReturnProduct
