@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Feature;
+
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use App\Models\Product;
