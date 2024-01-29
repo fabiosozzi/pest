@@ -10,12 +10,12 @@ class ReturnCategory
 {
     use AsAction;
 
-    public function handle(Category $category)
+    public function handle(Category $category): Category
     {
         return $category;
     }
 
-    public function asController(Category $category)
+    public function asController(Category $category): CategoryResource
     {
         return new CategoryResource($this->handle($category));
     }
