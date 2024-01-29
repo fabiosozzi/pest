@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\Category;
 
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\Product;
 
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
@@ -10,12 +10,12 @@ class ReturnProduct
 {
     use AsAction;
 
-    public function handle(Product $product)
+    public function handle(Product $product): Product
     {
         return $product;
     }
 
-    public function asController(Product $product)
+    public function asController(Product $product): ProductResource
     {
         return new ProductResource($this->handle($product));
     }

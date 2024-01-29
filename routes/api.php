@@ -1,7 +1,8 @@
 <?php
 
-use App\Actions\ReturnCategory;
-use App\Actions\ReturnProduct;
+use App\Actions\Category\ReturnCategory;
+use App\Actions\Category\UpdateCategory;
+use App\Actions\Product\ReturnProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,7 @@ Route::name('api.')->group(function () {
 
     Route::prefix('category')->name('category.')->group(function () {
         Route::get('/{category}', ReturnCategory::class)->name('get');
+        Route::post('/{category}/update', UpdateCategory::class)->name('update');
     });
 
     Route::prefix('product')->name('product.')->group(function () {
