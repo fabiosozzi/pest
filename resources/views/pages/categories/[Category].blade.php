@@ -12,8 +12,9 @@ render(function(View $view) {
 
 ?>
 
-@include('partials.menu')
+@extends('layouts.app')
 
+@section('content')
 <div>
     <h1>Scheda categoria</h1>
     <p>Titolo: {{ $category->name }}</p>
@@ -25,3 +26,4 @@ render(function(View $view) {
         @endforeach
     </ul>
 </div>
+@endsection

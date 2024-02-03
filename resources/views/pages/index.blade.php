@@ -1,5 +1,7 @@
-@include('partials.menu')
+@extends('layouts.app')
 
+@section('content')
 <div>
-    <h1>PEST test</h1>
+    <h1 class="font-bold">PEST test</h1>
 </div>
+@endsection

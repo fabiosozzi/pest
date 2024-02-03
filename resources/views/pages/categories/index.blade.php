@@ -14,8 +14,9 @@ render(function(View $view) {
 
 ?>
 
-@include('partials.menu')
+@extends('layouts.app')
 
+@section('content')
 <div>
     <h1>Categories:</h1>
     @if (!$categories->isEmpty())
@@ -28,3 +29,4 @@ render(function(View $view) {
         <p>None.</p>
     @endif
 </div>
+@endsection

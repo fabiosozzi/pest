@@ -12,8 +12,9 @@
     });
 ?>
 
-@include('partials.menu')
+@extends('layouts.app')
 
+@section('content')
 <div>
     <h1>Products:</h1>
     @if (!$products->isEmpty())
@@ -26,3 +27,4 @@
         <p>None.</p>
     @endif
 </div>
+@endsection
