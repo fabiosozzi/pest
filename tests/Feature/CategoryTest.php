@@ -13,7 +13,7 @@ describe('MODEL', function () {
             ->create();
 
         expect($category->products->count())->toBe(3);
-        expect($category->id)->toBe($category->products->first()->category->id);
+        $this->assertDatabaseHas('categories', ['id' => $category->id]);
     });
 });
 

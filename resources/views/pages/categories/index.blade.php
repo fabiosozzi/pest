@@ -13,15 +13,20 @@ render(function(View $view) {
 });
 
 ?>
+
+@extends('layouts.app')
+
+@section('content')
 <div>
     <h1>Categories:</h1>
     @if (!$categories->isEmpty())
         <ul>
             @foreach($categories as $category)
-            <li>{{ $category->name }}</li>
+            <li><a href="{{ route('category.show', [ 'category' => $category]) }}">{{ $category->name }}</a></li>
             @endforeach
         </ul>
     @else
         <p>None.</p>
     @endif
 </div>
+@endsection
