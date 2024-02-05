@@ -27,7 +27,7 @@ describe('API', function () {
     it('can update a category with the API "Update Category" route', function () {
         $category = Category::factory()->create();
         $new_category_name = 'New Category name';
-        $response = $this->post(route('api.category.update', ['category' => $category]), [ 'cagnolo' => $new_category_name ]);
+        $response = $this->post(route('api.category.update', ['category' => $category]), ['name' => $new_category_name]);
         $response->assertStatus(200);
         $category_db = Category::find($category->id);
         expect($category_db->name)->toBe($new_category_name);

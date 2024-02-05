@@ -1,10 +1,11 @@
 <?php
 
-use App\Actions\Category\ReturnCategory;
-use App\Actions\Category\UpdateCategory;
-use App\Actions\Product\ReturnProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Actions\Product\ReturnProduct;
+use App\Actions\Product\UpdateProduct;
+use App\Actions\Category\ReturnCategory;
+use App\Actions\Category\UpdateCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +32,6 @@ Route::name('api.')->group(function () {
 
     Route::prefix('product')->name('product.')->group(function () {
         Route::get('/{product}', ReturnProduct::class)->name('get');
+        Route::post('/{product}/update', UpdateProduct::class)->name('update');
     });
 });

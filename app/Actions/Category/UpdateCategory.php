@@ -2,10 +2,9 @@
 
 namespace App\Actions\Category;
 
-use App\Models\Category;
-
-use Lorisleiva\Actions\Concerns\AsAction;
 use App\Http\Requests\Category\UpdateCategoryRequest;
+use App\Models\Category;
+use Lorisleiva\Actions\Concerns\AsAction;
 
 class UpdateCategory
 {
